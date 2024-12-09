@@ -1,3 +1,13 @@
+/* caution:
+ *
+ * this is very bad code!!!!
+ * I'm still learning C and I made this
+ * in rush.
+ *
+ */
+
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include "automatas.h"
