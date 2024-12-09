@@ -8,6 +8,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 #include "automatas.h"
 
 #define WD 30 //world width
@@ -85,7 +86,8 @@ void clear(){ printf("\x1b[2j"); }
 void main_loop(char **world){
 	for(;;){
 		draw(world);
-		getchar();
+		usleep(500000);
+		//getchar();
 		update(world);
 		clear();
 
@@ -98,6 +100,10 @@ int main(int argc, char *argv[]) {
 	char **world = create_empty_buffer();
 	pilar(world);
 	glider(world);
+	glider_2(world);
+	thing_1(world);
+	thing_2(world);
+	thing_3(world);
 
 	//loop principal
 	main_loop(world);
