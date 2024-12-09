@@ -12,7 +12,7 @@
 #include "automatas.h"
 
 #define WD 30 //world width
-	
+#define WH 30 //world heigth
 
 char** create_empty_buffer(){
 	const char DEAD_C = ' ';
