@@ -6,8 +6,6 @@
  *
  */
 
-
-
 #include <stdio.h>
 #include <stdlib.h>
 #include "automatas.h"
@@ -70,27 +68,6 @@ void update(char **world){
 		}
 	}
 	free(buffer);
-}
-
-void man_update(char **world){
-//world[60][41] = '@';
-//world[61][41] = '@';
-//world[62][41] = '@';
-//world[63][41] = '@';
-//world[64][41] = '@';
-//world[60][42] = '@';
-//world[61][42] = '@';
-//world[62][42] = '@';
-//world[63][42] = '@';
-//world[64][42] = '@';
-
-
-	world[1][0] = '@';
-	world[2][1] = '@';
-	world[0][2] = '@';
-	world[1][2] = '@';
-	world[2][2] = '@';
-
 }
 
 void draw(char **world){
