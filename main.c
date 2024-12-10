@@ -11,16 +11,16 @@
 #include <unistd.h>
 #include "automatas.h"
 
-#define WD 30 //world width
-#define WH 30 //world heigth
+#define WD 30 //world heigth
+#define WH 150 //world width
 
 char** create_empty_buffer(){
 	const char DEAD_C = ' ';
 
 	char **buffer = malloc(WD * sizeof(char*));
 	for(int x = 0; x < WD; x++){
-		buffer[x] = malloc(WD * sizeof(char));
-		for(int y = 0; y < WD; y++){
+		buffer[x] = malloc(WH * sizeof(char));
+		for(int y = 0; y < WH; y++){
 			buffer[x][y] = DEAD_C;
 		}
 	}
@@ -31,8 +31,8 @@ char** create_empty_buffer(){
 char** copy_buffer(char** world){ 
 	char **buffer = malloc(WD * sizeof(char*));
 	for(int x = 0; x < WD; x++){
-		buffer[x] = malloc(WD * sizeof(char));
-		for(int y = 0; y < WD; y++){
+		buffer[x] = malloc(WH * sizeof(char));
+		for(int y = 0; y < WH; y++){
 			buffer[x][y] = world[x][y];
 		}
 	}
@@ -44,7 +44,7 @@ int count_nb(char **buffer, int x, int y){ //count the live neighborhood
 	for(int i = -1; i < 2; i++){
 		for(int j = -1; j < 2; j++){
 			if((i == 0) && (j == 0)) { continue; }
-			if(buffer[(((x+i)%WD)+WD)%WD][(((y+j)%WD)+WD)%WD] == '@'){ count++; }
+			if(buffer[(((x+i)%WD)+WD)%WD][(((y+j)%WH)+WH)%WH] == '@'){ count++; }
 		}
 	}
 	return count;
@@ -53,7 +53,7 @@ int count_nb(char **buffer, int x, int y){ //count the live neighborhood
 void update(char **world){
 	char **buffer = copy_buffer(world);
 	for(int x = 0; x < WD; x++) {
-		for(int y = 0; y < WD; y++){
+		for(int y = 0; y < WH; y++){
 			int count = count_nb(world, x, y);
 			if(world[x][y] == '@' && count < 2){ buffer[x][y] = ' '; }
 			if(world[x][y] == '@' && ((count == 2)||(count == 3))){ buffer[x][y] = '@'; }
@@ -63,7 +63,7 @@ void update(char **world){
 }
 
 	for(int x = 0; x < WD; x++){
-		for(int y = 0; y < WD; y++){
+		for(int y = 0; y < WH; y++){
 			char c_buffer = buffer[x][y];
 			world[x][y] = c_buffer;
 		}
@@ -72,8 +72,8 @@ void update(char **world){
 }
 
 void draw(char **world){
-	for(int x = 0; x < WD; x++){
-		for(int y = 0; y < WD; y++){
+	for(int x = 0; x < WD; x++){ 
+		for(int y = 0; y < WH; y++){
 			putchar(world[x][y]);
 		}
 		printf("\n");
@@ -104,6 +104,9 @@ int main(int argc, char *argv[]) {
 	thing_1(world);
 	thing_2(world);
 	thing_3(world);
+	thing_4(world);
+	line(world);
+	line_2(world);
 
 	//loop principal
 	main_loop(world);
