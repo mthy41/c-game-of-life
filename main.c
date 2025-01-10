@@ -74,6 +74,11 @@ void update(char **world){
 void draw(char **world){
 	for(int x = 0; x < WD; x++){ 
 		for(int y = 0; y < WH; y++){
+            if((world[x][y]) == '@'){
+                printf("\u2588");
+                //putchar('@');
+                continue;
+            }
 			putchar(world[x][y]);
 		}
 		printf("\n");
@@ -86,7 +91,7 @@ void clear(){ printf("\x1b[2j"); }
 void main_loop(char **world){
 	for(;;){
 		draw(world);
-		usleep(500000);
+		usleep(250000);
 		//getchar();
 		update(world);
 		clear();
@@ -102,12 +107,12 @@ int main(int argc, char *argv[]) {
 	glider(world);
 	glider_2(world);
 	thing_1(world);
-	thing_2(world);
-	thing_3(world);
-	thing_4(world);
+	//thing_2(world);
+	//thing_3(world);
+	//thing_4(world);
 	line(world);
-	line_2(world);
-    line(world);
+	//line_2(world);
+    //line(world);
 
 	//loop principal
 	main_loop(world);
