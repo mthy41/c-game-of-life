@@ -1,8 +1,6 @@
 # Conway's game of live in C
 
-<p align="center">
 ![GIF demo](assets/demo.gif)
-</p>
 
 ___
 **This is a learning journey project, expect a lot of newbie C code!**
