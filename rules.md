@@ -1,6 +1,6 @@
-# Regras
+# Rules
 ___
-1. Toda célula morta com exatamente três vizinhos vivos torna-se viva (nascimento).
-2. Toda célula viva com menos de dois vizinhos vivos morre por isolamento.
-2. Toda célula viva com mais de três vizinhos vivos morre por superpopulação.
-2. Toda célula viva com dois ou três vizinhos vivos permanece viva.
+1. Every dead cell with exacly three live neighboors become alive.
+2. Every live cell with less than two neighboors dies from underporpulation.
+3. Every live cell with more than tree live neighboors dies from overpopulation;
+4. Every live cell with only two live neighboors stays alive.

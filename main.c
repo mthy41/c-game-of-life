@@ -107,6 +107,7 @@ int main(int argc, char *argv[]) {
 	thing_4(world);
 	line(world);
 	line_2(world);
+    line(world);
 
 	//loop principal
 	main_loop(world);
